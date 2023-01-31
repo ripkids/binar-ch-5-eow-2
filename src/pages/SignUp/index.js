@@ -58,6 +58,7 @@ const SignUp = () => {
         message: error
       })
       setIsLoading(false);
+      setButtonText('Sign Up');
     }
   }
   
@@ -71,7 +72,6 @@ const SignUp = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter email"
-                value={credential.email}
                 onChange={(ev) => onCredentialChange(ev, 'email')}
               />
             </Form.Group>
@@ -84,7 +84,6 @@ const SignUp = () => {
                 aria-describedby="pass"
                 aria-label="Password"
                 placeholder="Enter password"
-                value={credential.password}
                 onChange={(ev) => onCredentialChange(ev, 'password')}
               />
               <Button

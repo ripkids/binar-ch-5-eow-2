@@ -63,13 +63,13 @@ const Login = () => {
   return (
     <div className="h-100 container-fluid d-flex flex-column justify-content-center">
       <div className="h-100 py-3 row">
-        <div className="col col-lg-6 d-flex flex-column justify-content-center">
+        <div className="col-lg-6 d-flex flex-column justify-content-center">
           <img
             src="images/undraw_secure_login.svg"
-            className="w-75"
+            className="w-75 align-self-center"
           />
         </div>
-        <div className="col col-lg-6">
+        <div className="col-lg-6">
           <Card className="h-100">
             <Card.Body className="d-flex flex-column justify-content-center">
               <h2 className="mb-5">Welcome to Binar Color Generator</h2>
