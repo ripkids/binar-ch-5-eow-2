@@ -4,14 +4,20 @@ const menus = [
   {
     id: 1,
     name: 'Home',
-    url: 'home',
-    icon: (isCurrentUrl) => <FaHome className={isCurrentUrl ? 'text-danger' : 'text-success'} />
+    url: '/home',
+    icon: (isCurrentUrl, isSide) => <FaHome
+      size={isSide ? 24 : 32}
+      className={isCurrentUrl ? 'text-success' : ''}
+    />
   },
   {
     id: 2,
     name: 'User',
-    url: 'user',
-    icon: (isCurrentUrl) => <FaUsers className={isCurrentUrl ? 'text-danger' : 'text-success'} />
+    url: '/user',
+    icon: (isCurrentUrl, isSide) => <FaUsers
+      size={isSide ? 24 : 32}
+      className={isCurrentUrl ? 'text-success' : ''}
+    />
   }
 ]
 

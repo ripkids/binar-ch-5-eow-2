@@ -5,7 +5,7 @@ import { Button, Card, Form, InputGroup } from 'react-bootstrap';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import api from '../../api';
-import { saveToken } from '../../utils/Storage';
+import { saveMe, saveToken } from '../../utils/Storage';
 import { ToastContext } from '../../components/ToastProvider';
 
 const Login = () => {
@@ -35,6 +35,8 @@ const Login = () => {
       const { data } = await api.login(credential);
       saveToken(data.token);
 
+      await getUserDetail();
+
       showToast({
         variant: 'success',
         title: 'Success',
@@ -44,6 +46,25 @@ const Login = () => {
       setTimeout(() => {
         navigate('/home');
       }, 3000);
+    } catch ({ response }) {
+      const { data } = response;
+      const { error } = data;
+
+      showToast({
+        variant: 'danger',
+        title: 'Error',
+        message: error
+      })
+
+      setIsLoading(false);
+    }
+  }
+
+  const getUserDetail = async () => {
+    try {
+      const { data } = await api.getUsers({ page: 1, per_page: 20 });
+      const user = data.data.find((item) => item.email === credential.email);
+      saveMe(user);
     } catch ({ response }) {
       const { data } = response;
       const { error } = data;
