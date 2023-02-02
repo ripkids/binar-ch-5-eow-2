@@ -44,21 +44,21 @@ const User = () => {
         {
           users.map((item) => (
             <div key={`key-${item.id}`} className="col-6 col-lg-4 mb-3">
-              <Card>
+              <Card className="h-100">
                 <Card.Img
                   src={item.avatar}
                   className="d-none d-lg-block card-img-custom"
                 />
                 <Card.Body>
                   <div className="row">
-                    <div className="col-3 d-flex flex-column justify-content-center">
+                    <div className="col-md-3 mb-3 mb-md-0 d-flex flex-column justify-content-center">
                       <Image
                         roundedCircle
                         src={item.avatar}
-                        className="w-75"
+                        className="w-75 align-self-center"
                       />
                     </div>
-                    <div className="col-9">
+                    <div className="col-md-9">
                       <strong>{item.last_name}, {item.first_name}</strong>
                       <p className="text-secondary">{item.email}</p>
                     </div>

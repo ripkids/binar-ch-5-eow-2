@@ -21,7 +21,7 @@ const TopBar = () => {
             Menus.map(({id, name, url, icon }) => (
               <div
                 key={`menu-${id}`}
-                className="col-1"
+                className="col-2 col-md-1"
                 onClick={() => navigateToPage(url)}
               >
                 {icon(isCurrentUrl(url))}
