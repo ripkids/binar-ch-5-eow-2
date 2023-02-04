@@ -31,11 +31,25 @@ const Home = () => {
       setIsLoading(false);
     }
   }
-  
+
+  const loginWithBinarApi = async () => {
+    const response = await api.binarLogin({
+      email: 'admin@bcr.io',
+      password: '123456'
+    });
+    localStorage.setItem('rahasia', response.data.access_token);
+  }
+
+  const getCarsFromBinarApi = async () => {
+    const response = await api.getCars();
+    console.log('res', response.data.cars);
+  }
   const onColorSelected = (item) => setSelectedColor(item);
   
   useEffect(() => {
     getColors();
+    loginWithBinarApi();
+    getCarsFromBinarApi();
   }, []);
   
   useEffect(() => {
